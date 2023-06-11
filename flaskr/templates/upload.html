@@ -1,0 +1,30 @@
+{% extends "main.html" %}
+
+{% block page_name %}
+Upload
+{% endblock %}
+
+{% block page_head %}
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"/>
+
+{% endblock %}
+
+{% block content %}
+
+<div style="text-align: center; padding: 200px 0;">
+    <h1>Upload File</h1>
+    <form action="/upload" method="POST" enctype="multipart/form-data">
+        <label for="text">Page name</label><br><br>
+        <input type="text" id="page_name" name="page_name" required><br><br>
+
+        <label for="image-url"> Add image url </label><br><br>
+        <input type="url" id="image_url" name="image_url"><br><br>
+
+        <label for="myFile"> Please choose a File to Upload.</label><br><br>
+        <input type="file" id="file" name="file" accept=".txt" required><br><br>
+
+        <input type="submit" name="Upload">
+    </form>    
+</div>
+
+{% endblock %}

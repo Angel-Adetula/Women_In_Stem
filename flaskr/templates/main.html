@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <head>
+        <title>{% block page_name %}Women in Stem{% endblock %}</title>
+        {% block page_head %} {% endblock %}
+        <link rel="stylesheet" href="{{url_for('static', filename='main.css')}}" />
+    </head>
+
+</head>
+
+<body>
+    {% block nav %}
+    <!-- TODO(Project 1): Implement routes. -->
+    <div class="nav-bar">
+
+        {% if 'username' in session %}
+        <p style="margin-right:5px;"> Hi, {{ session['username'] }}</p>
+        {% endif %}
+
+        <p><a href="{{ url_for('home') }}">Home</a></p>
+        <p><a href="{{ url_for('page_index') }}">Pages</a></p>
+        <p><a href="{{ url_for('about') }}">About</a></p>
+        <p><a href="{{ url_for('fun_get') }}">Fun</a></p>
+
+        {% if 'username' in session %}
+        <p><a href="{{ url_for('upload_get') }}">Upload</a></p>
+        <p><a href="{{ url_for('edit_page') }}">Activity</a></p>
+        <p><a href="{{ url_for('upload_translation') }}">Translation</a></p>
+        <p><a href="{{ url_for('logout') }}">Logout</a></p>
+        {% else %}
+        <p><a href="{{ url_for('signup_get') }}">Sign Up</a></p>
+        <p><a href="{{ url_for('login_get') }}">Login</a></p>
+
+        {% endif %}
+    </div>
+    {% endblock %}
+    <div>
+        {% block content %}  
+        <!-- TODO(Checkpoint Requirement 3): Change the title and content of your wiki.-->
+        <div style= "height:800px; align-items:center; display:flex; justify-content: center; background-color:aliceblue; flex-direction: column;">
+            <h1 style="text-align: center; padding:20px; font-size:70px;">  Notable women in stem </h1>
+            <p style="text-align: center;"> This main objective of this website is to list achievements of notable women in stem. </p>
+        </div>
+        {% endblock %}
+    </div>
+</body>
+
+</html>
